@@ -1,0 +1,114 @@
+.swap {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.swap .card {
+  background-color: black;
+}
+
+.swap .card-header {
+  font-size: 18px;
+  background-color: var(--gray-color_1);
+}
+
+.swap .card-footer {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.swap .card-body {
+  line-height: 20px;
+  padding: 16px;
+}
+
+.swap .card-body + .card-body {
+  border-top: 0.5px solid #ffffff20;
+}
+
+.swap .hint,
+.swap .balance {
+  color: var(--gray-color_2);
+}
+
+.swap .balance {
+  font-size: 12px;
+}
+
+.swap .asset {
+  text-align: center;
+  background-color: #131313;
+  border-radius: 18px;
+  padding: 4px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  font-size: 20px;
+}
+
+.swap .amount-spinner {
+  font-size: 36px;
+  height: 42px;
+}
+
+.swap .amount-input {
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  caret-color: white;
+  color: white;
+  text-align: left;
+  font-size: 36px;
+  height: 42px;
+}
+
+.swap .amount-input::placeholder {
+  color: var(--gray-color_2);
+}
+
+.swap .btn {
+  color: white !important;
+  font-size: 20px;
+}
+
+.swap .btn-swap {
+  background-color: #5664e7;
+}
+
+.swap .btn-swap:hover {
+  background-color: #515ed1;
+}
+
+.swap .btn-swap.btn-featured {
+  background-color: #fc72ff;
+}
+
+.swap .btn-swap.btn-featured:hover {
+  background-color: #e863eb;
+}
+
+.swap .btn-swap:disabled {
+  background-color: gray !important;
+}
+
+.swap .card-header_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.swap .card-header_tooltip {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.swap .card-header_powered {
+  font-size: 12px;
+}
+
+.swap .card-header_powered img {
+  margin-left: 8px;
+  height: 20px;
+  width: 20px;
+}

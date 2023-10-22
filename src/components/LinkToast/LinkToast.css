@@ -1,0 +1,23 @@
+.link-toast {
+  /*  */
+}
+
+.link-toast-text {
+  margin-right: 10px;
+}
+
+.link-toast-link {
+  display: inline-flex;
+  align-items: center;
+  color: #fff;
+  text-decoration: none !important;
+  border-bottom: 1px solid;
+}
+
+.link-toast-link:hover {
+  color: #fff;
+}
+
+.link-toast-link-text {
+  margin-right: 5px;
+}

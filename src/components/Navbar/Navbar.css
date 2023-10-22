@@ -1,0 +1,21 @@
+.navbar {
+  padding-top: 12px !important;
+}
+.navlink {
+  width: 60px;
+  text-align: center;
+  display: inline-block;
+  color: var(--gray-color_2);
+  padding: 8px;
+  border-radius: var(--border-radius);
+  text-decoration: none !important;
+}
+
+.active {
+  color: white;
+}
+
+.navlink:hover {
+  color: white;
+  background-color: var(--gray-color_1);
+}
