@@ -1,0 +1,39 @@
+name: Deploy main -> prod (manual)
+on: workflow_dispatch
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      VITE_WALLECT_CONNECT_PROJECT_ID: ${{ secrets.VITE_WALLECT_CONNECT_PROJECT_ID }}
+      VITE_STAGE_DASHBOARD_URL: ${{ secrets.VITE_STAGE_DASHBOARD_URL }}
+      VITE_STAGE_ISSUER_URL: ${{ secrets.VITE_STAGE_ISSUER_URL }}
+    steps:
+      - name: Check out main branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Use specific node version
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.17.1
+
+      - name: Print current toolchain
+        run: node -v && yarn -v
+
+      - name: Install dependencies with yarn
+        run: yarn
+
+      - name: Build artifact
+        run: yarn build
+
+      - name: Deploy artifact to S3 and invalidate Cloudfront
+        uses: lbertenasco/s3-deploy@v1
+        with:
+          folder: dist
+          bucket: ${{ secrets.AWS_PROD_BUCKET }}
+          dist-id: ${{ secrets.AWS_PROD_CLOUDFRONT_DIST_ID }}
+          invalidation: / *
