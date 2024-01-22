@@ -333,6 +333,31 @@ const LVL2_CONTRACTS_DICTIONARY = {
         inputs: [
           {
             indexed: false,
+            internalType: 'address',
+            name: 'recepient',
+            type: 'address',
+          },
+          {
+            indexed: false,
+            internalType: 'uint256',
+            name: 'ethAmount',
+            type: 'uint256',
+          },
+          {
+            indexed: false,
+            internalType: 'uint256',
+            name: 'ufiAmount',
+            type: 'uint256',
+          },
+        ],
+        name: 'DemoPurchase',
+        type: 'event',
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: false,
             internalType: 'uint8',
             name: 'version',
             type: 'uint8',
