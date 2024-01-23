@@ -1105,13 +1105,13 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
-"@purefi/kyc-sdk@^0.1.1-alpha.0":
-  version "0.1.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@purefi/kyc-sdk/-/kyc-sdk-0.1.1-alpha.0.tgz#82e3256d4a459f98e23e9141c5291fe31f712c90"
-  integrity sha512-COXqznajghSSiJAYaP6bk9EbnwlbhrUbCPLlWNsi9gQTQxFvqUpfHh00LAbp48/O/fOYZmU0PHWacW50jX17Ug==
+"@purefi/kyc-sdk@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@purefi/kyc-sdk/-/kyc-sdk-0.2.0.tgz#ebc5309291a40921d07fba4e8100d6c2f47f21b0"
+  integrity sha512-uso/VX+3swNQdbPPNSN8jXWg8c7MZ0ATkNCIu8103gT2INugce8y/hSCaoA9HGSC+QX4yhtYiT70KDHy/2aK+A==
   dependencies:
     "@ant-design/icons" "^5.2.6"
-    "@purefi/verifier-sdk" "^6.0.2"
+    "@purefi/verifier-sdk" "^7.0.0"
     "@reduxjs/toolkit" "^2.0.1"
     antd "^5.10.2"
     axios "^1.5.1"
@@ -1129,10 +1129,10 @@
     redux "^5.0.1"
     store "^2.0.12"
 
-"@purefi/verifier-sdk@^6.0.2":
-  version "6.0.2"
-  resolved "https://registry.yarnpkg.com/@purefi/verifier-sdk/-/verifier-sdk-6.0.2.tgz#7e6e0395fd0e9d7a42df609cbbe4ce64a81d2e93"
-  integrity sha512-7nSAyjcFjjGG5EUEPndWPEtFu5WCC6etL60clYAkEYYWr8+ZT7SGbJStPHVlJF5nZS16tlY6qf8PFP8+vItgig==
+"@purefi/verifier-sdk@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@purefi/verifier-sdk/-/verifier-sdk-7.0.0.tgz#5c2cb3e682b7abeea2fcb9480105f6703321c3ad"
+  integrity sha512-1xSykxUa3a8MclSHMMoz6jq3IBgJBxoJzR778ZTaIIQDx5xmvRFjuwwLTiYMeTBAzoXA3nuSzSng6QtsK0QzPA==
   dependencies:
     axios "^0.22.0"
     eth-rpc-errors "^4.0.3"
