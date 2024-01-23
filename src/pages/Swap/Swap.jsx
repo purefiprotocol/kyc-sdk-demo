@@ -1,5 +1,7 @@
 import { useState, useCallback } from 'react';
 import { toast } from 'react-toastify';
+import { Client, cacheExchange, fetchExchange } from '@urql/core';
+import { parseFixed } from '@ethersproject/bignumber';
 import { SwapCard } from '../../components';
 import { useWallet, useContract, useVerifier } from '../../hooks';
 import {
@@ -29,6 +31,41 @@ function Swap() {
 
   const { verify } = useVerifier(featuredContractData, LVL2_RULE_VALUE);
 
+  const checkLimits = async (sender, value) => {
+    const APIURL =
+      'https://api.studio.thegraph.com/query/63726/demo-buyer2/v0.0.1';
+
+    const client = new Client({
+      url: APIURL,
+      exchanges: [cacheExchange, fetchExchange],
+    });
+
+    const tokensQuery = (sender) => `
+      {
+        demoPurchases(where: {recepient: "${sender}"}) {
+          ethAmount
+          ufiAmount
+        }
+      }
+    `;
+
+    const theQuery = tokensQuery(sender);
+
+    try {
+      const result = await client.query(theQuery).toPromise();
+
+      const ufiSwaps = result.data.demoPurchases.map((item) =>
+        parseFixed(item.ufiAmount, 18)
+      );
+
+      console.log(ufiSwaps, value);
+      return false;
+    } catch (e) {
+      console.log(e);
+      return false;
+    }
+  };
+
   const handleFreeSwap = useCallback(
     async (value) => {
       const swapToastId = toast.loading('Pending...');
@@ -51,6 +88,21 @@ function Swap() {
       const verificationToastId = toast.loading('Pending...');
 
       setVerificationLoading(true);
+
+      const limitError = await checkLimits(account, value);
+
+      if (limitError) {
+        toast.update(verificationToastId, {
+          render: limitError,
+          type: 'error',
+          isLoading: false,
+          autoClose: 5000,
+          closeButton: true,
+        });
+
+        return;
+      }
+
       const purefiData = await verify(
         account,
         signer,
