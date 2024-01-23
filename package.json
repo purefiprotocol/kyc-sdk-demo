@@ -13,6 +13,7 @@
     "@ant-design/icons": "^5.2.6",
     "@ethersproject/bignumber": "^5.7.0",
     "@purefi/kyc-sdk": "^0.2.0",
+    "@urql/core": "^4.2.3",
     "@web3modal/ethereum": "^2.2.2",
     "@web3modal/react": "^2.2.2",
     "bootstrap": "^4.6.2",
