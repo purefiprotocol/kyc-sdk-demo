@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import {
   EthereumClient,
@@ -8,11 +9,11 @@ import { Web3Modal } from '@web3modal/react';
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 import { PureFI } from '@purefi/kyc-sdk';
 import { WalletProvider } from './context';
-import { DEFAULT_URLS, CONFIGURED_CHAINS, mumbai } from './config';
+import { DEFAULT_URLS, CONFIGURED_CHAINS, mumbai, sepolia } from './config';
 import { Layout } from './components';
 import { Swap, Kyc, NotFound } from './pages';
 import polygonLogo from './assets/icons/polygon.webp';
-import { useEffect } from 'react';
+import sepoliaLogo from './assets/icons/sepolia.png';
 
 const wcProjectId = import.meta.env.VITE_WALLECT_CONNECT_PROJECT_ID;
 
@@ -53,6 +54,7 @@ const App = () => {
         ethereumClient={ethereumClient}
         chainImages={{
           [mumbai.id]: polygonLogo,
+          [sepolia.id]: sepoliaLogo,
         }}
         enableNetworkView
       />
