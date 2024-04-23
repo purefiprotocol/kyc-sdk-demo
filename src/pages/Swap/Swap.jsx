@@ -71,9 +71,13 @@ function Swap() {
           value,
         };
 
-        await featuredSwap?.(args, overrides, swapToastId);
-
-        setFeaturedContractLoading(false);
+        try {
+          await featuredSwap?.(args, overrides, swapToastId);
+        } catch (e) {
+          console.log(e);
+        } finally {
+          setFeaturedContractLoading(false);
+        }
       }
     },
     [account, signer, chain, verify, featuredSwap]

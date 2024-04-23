@@ -6,6 +6,7 @@ import {
   CONFIGURED_GAS_LIMIT_MULTIPLIERS,
   DEFAULT_GAS_LIMIT_MULTIPLIER,
   ZERO_ADDRESS,
+  arbitrumSepolia,
 } from '../config';
 import { capitalizeFirstLetter } from '../utils';
 import { LinkToast } from '../components';
@@ -51,19 +52,21 @@ const useContract = (contractData, functionName) => {
       try {
         const theOverrides = overrides || {};
 
-        const estimatedGasLimit = await contract.estimateGas[functionName](
-          ...args,
-          theOverrides
-        );
+        if (chain.id !== arbitrumSepolia.id) {
+          const estimatedGasLimit = await contract.estimateGas[functionName](
+            ...args,
+            theOverrides
+          );
 
-        const increasedGasLimit = estimatedGasLimit
-          .mul(gasLimitMultiplier * 100)
-          .div(100);
+          const increasedGasLimit = estimatedGasLimit
+            .mul(gasLimitMultiplier * 100)
+            .div(100);
 
-        const gasPrice = await provider.getGasPrice();
+          const gasPrice = await provider.getGasPrice();
 
-        theOverrides.gasLimit = increasedGasLimit;
-        theOverrides.gasPrice = gasPrice;
+          theOverrides.gasLimit = increasedGasLimit;
+          theOverrides.gasPrice = gasPrice;
+        }
 
         const txn = await contract[functionName](...args, theOverrides);
         const response = await txn.wait();

@@ -1,162 +1,6 @@
-import { mumbai, sepolia } from './chains';
+import { sepolia, arbitrumSepolia } from './chains';
 
 const FREE_CONTRACTS_DICTIONARY = {
-  [mumbai.id]: {
-    contractAddress: '0xB5eBb6E0e4D77C25297cf33E6BcE0eDa98ff3509',
-    tokenAddress: '0x70892902C0BfFdEEAac711ec48F14c00b0fa7E3A', // tUFI
-    abi: [
-      {
-        anonymous: false,
-        inputs: [
-          {
-            indexed: false,
-            internalType: 'uint8',
-            name: 'version',
-            type: 'uint8',
-          },
-        ],
-        name: 'Initialized',
-        type: 'event',
-      },
-      {
-        anonymous: false,
-        inputs: [
-          {
-            indexed: true,
-            internalType: 'address',
-            name: 'previousOwner',
-            type: 'address',
-          },
-          {
-            indexed: true,
-            internalType: 'address',
-            name: 'newOwner',
-            type: 'address',
-          },
-        ],
-        name: 'OwnershipTransferred',
-        type: 'event',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: '_to',
-            type: 'address',
-          },
-        ],
-        name: 'buyForWithoutKYC',
-        outputs: [],
-        stateMutability: 'payable',
-        type: 'function',
-      },
-      {
-        inputs: [],
-        name: 'initialize',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [],
-        name: 'owner',
-        outputs: [
-          {
-            internalType: 'address',
-            name: '',
-            type: 'address',
-          },
-        ],
-        stateMutability: 'view',
-        type: 'function',
-      },
-      {
-        inputs: [],
-        name: 'renounceOwnership',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [],
-        name: 'ruleID',
-        outputs: [
-          {
-            internalType: 'uint256',
-            name: '',
-            type: 'uint256',
-          },
-        ],
-        stateMutability: 'view',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'uint256',
-            name: '_ruleId',
-            type: 'uint256',
-          },
-        ],
-        name: 'setRuleId',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: '_verifier',
-            type: 'address',
-          },
-        ],
-        name: 'setVerifier',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [
-          {
-            internalType: 'address',
-            name: 'newOwner',
-            type: 'address',
-          },
-        ],
-        name: 'transferOwnership',
-        outputs: [],
-        stateMutability: 'nonpayable',
-        type: 'function',
-      },
-      {
-        inputs: [],
-        name: 'ufi',
-        outputs: [
-          {
-            internalType: 'contract ERC20Upgradeable',
-            name: '',
-            type: 'address',
-          },
-        ],
-        stateMutability: 'view',
-        type: 'function',
-      },
-      {
-        inputs: [],
-        name: 'version',
-        outputs: [
-          {
-            internalType: 'uint32',
-            name: '',
-            type: 'uint32',
-          },
-        ],
-        stateMutability: 'pure',
-        type: 'function',
-      },
-    ],
-  },
   [sepolia.id]: {
     contractAddress: '0x5072dA8B82B8Faebd69Ef44E8Cd4bf479AEbaEBa',
     tokenAddress: '0x632C855E22dFD82B0A6b399ACF8b92CB18E17FeE', // tUFI
@@ -313,12 +157,9 @@ const FREE_CONTRACTS_DICTIONARY = {
       },
     ],
   },
-};
-
-const LVL1_CONTRACTS_DICTIONARY = {
-  [mumbai.id]: {
-    contractAddress: '0xb6cE3785afcBf6da7F775D77c3951a25D613E620',
-    tokenAddress: '0x70892902C0BfFdEEAac711ec48F14c00b0fa7E3A', // tUFI
+  [arbitrumSepolia.id]: {
+    contractAddress: '0x591Df4DCc584951F87F077048a03EDc198950fca',
+    tokenAddress: '0x4C960866dACd8b4B2cb0287B7079F36631F0AB28', // custom stable
     abi: [
       {
         anonymous: false,
@@ -359,13 +200,8 @@ const LVL1_CONTRACTS_DICTIONARY = {
             name: '_to',
             type: 'address',
           },
-          {
-            internalType: 'bytes',
-            name: '_purefidata',
-            type: 'bytes',
-          },
         ],
-        name: 'buyForWithKYCPurefi1',
+        name: 'buyForWithoutKYC',
         outputs: [],
         stateMutability: 'payable',
         type: 'function',
@@ -477,6 +313,9 @@ const LVL1_CONTRACTS_DICTIONARY = {
       },
     ],
   },
+};
+
+const LVL1_CONTRACTS_DICTIONARY = {
   [sepolia.id]: {
     contractAddress: '0xFE88FC9144a92b05f55F19b55eAe096121D94261',
     tokenAddress: '0x632C855E22dFD82B0A6b399ACF8b92CB18E17FeE', // tUFI
@@ -638,12 +477,173 @@ const LVL1_CONTRACTS_DICTIONARY = {
       },
     ],
   },
+  [arbitrumSepolia.id]: {
+    contractAddress: '0xdC118d6354bEeaCf832230E49A8F1f234d461804',
+    tokenAddress: '0x4C960866dACd8b4B2cb0287B7079F36631F0AB28', // custom stable
+    abi: [
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: false,
+            internalType: 'uint8',
+            name: 'version',
+            type: 'uint8',
+          },
+        ],
+        name: 'Initialized',
+        type: 'event',
+      },
+      {
+        anonymous: false,
+        inputs: [
+          {
+            indexed: true,
+            internalType: 'address',
+            name: 'previousOwner',
+            type: 'address',
+          },
+          {
+            indexed: true,
+            internalType: 'address',
+            name: 'newOwner',
+            type: 'address',
+          },
+        ],
+        name: 'OwnershipTransferred',
+        type: 'event',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: '_to',
+            type: 'address',
+          },
+          {
+            internalType: 'bytes',
+            name: '_purefidata',
+            type: 'bytes',
+          },
+        ],
+        name: 'buyForWithKYCPurefi1',
+        outputs: [],
+        stateMutability: 'payable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'initialize',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'owner',
+        outputs: [
+          {
+            internalType: 'address',
+            name: '',
+            type: 'address',
+          },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'renounceOwnership',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'ruleID',
+        outputs: [
+          {
+            internalType: 'uint256',
+            name: '',
+            type: 'uint256',
+          },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'uint256',
+            name: '_ruleId',
+            type: 'uint256',
+          },
+        ],
+        name: 'setRuleId',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: '_verifier',
+            type: 'address',
+          },
+        ],
+        name: 'setVerifier',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [
+          {
+            internalType: 'address',
+            name: 'newOwner',
+            type: 'address',
+          },
+        ],
+        name: 'transferOwnership',
+        outputs: [],
+        stateMutability: 'nonpayable',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'ufi',
+        outputs: [
+          {
+            internalType: 'contract ERC20Upgradeable',
+            name: '',
+            type: 'address',
+          },
+        ],
+        stateMutability: 'view',
+        type: 'function',
+      },
+      {
+        inputs: [],
+        name: 'version',
+        outputs: [
+          {
+            internalType: 'uint32',
+            name: '',
+            type: 'uint32',
+          },
+        ],
+        stateMutability: 'pure',
+        type: 'function',
+      },
+    ],
+  },
 };
 
 const LVL2_CONTRACTS_DICTIONARY = {
-  [mumbai.id]: {
-    contractAddress: '0x61Db3f559C8Bd4c2eA40c241302b6cc03194dbA4',
-    tokenAddress: '0x70892902C0BfFdEEAac711ec48F14c00b0fa7E3A', // tUFI
+  [sepolia.id]: {
+    contractAddress: '0x1b64655512a87BBb4C45A62c4Af4Ab0FdC7bFD50',
+    tokenAddress: '0x632C855E22dFD82B0A6b399ACF8b92CB18E17FeE', // tUFI
     abi: [
       {
         anonymous: false,
@@ -801,9 +801,9 @@ const LVL2_CONTRACTS_DICTIONARY = {
       },
     ],
   },
-  [sepolia.id]: {
-    contractAddress: '0x1b64655512a87BBb4C45A62c4Af4Ab0FdC7bFD50',
-    tokenAddress: '0x632C855E22dFD82B0A6b399ACF8b92CB18E17FeE', // tUFI
+  [arbitrumSepolia.id]: {
+    contractAddress: '0xDCb92aD83aD981fBd6814E2951C855ECF14f0618',
+    tokenAddress: '0x4C960866dACd8b4B2cb0287B7079F36631F0AB28', // custom stable
     abi: [
       {
         anonymous: false,

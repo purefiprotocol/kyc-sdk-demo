@@ -1,4 +1,9 @@
-export { CONFIGURED_CHAINS, DEAFULT_CHAIN, mumbai, sepolia } from './chains';
+export {
+  CONFIGURED_CHAINS,
+  DEAFULT_CHAIN,
+  sepolia,
+  arbitrumSepolia,
+} from './chains';
 export { SIGN_TYPE_OPTIONS, DEFAULT_SIGN_TYPE } from './signType';
 export {
   CONFIGURED_RULE_TYPES,

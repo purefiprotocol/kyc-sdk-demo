@@ -1,10 +1,31 @@
-import { sepolia, polygonMumbai } from 'wagmi/chains';
+import { sepolia } from 'wagmi/chains';
 
-const mumbai = JSON.parse(JSON.stringify(polygonMumbai));
+const arbitrumSepolia = {
+  id: 421614,
+  name: 'Arbitrum Sepolia',
+  network: 'arbitrumSepolia',
+  nativeCurrency: {
+    name: 'ETH',
+    symbol: 'ETH',
+    decimals: 18,
+  },
+  rpcUrls: {
+    default: {
+      http: ['https://sepolia-rollup.arbitrum.io/rpc'],
+    },
+    public: {
+      http: ['https://sepolia-rollup.arbitrum.io/rpc'],
+    },
+  },
+  blockExplorers: {
+    default: {
+      name: 'Arbiscan',
+      url: 'https://sepolia.arbiscan.io',
+    },
+  },
+};
 
-mumbai.name = 'Mumbai';
-
-const CONFIGURED_CHAINS = [mumbai, sepolia];
+const CONFIGURED_CHAINS = [sepolia, arbitrumSepolia];
 const DEAFULT_CHAIN = sepolia;
 
-export { CONFIGURED_CHAINS, DEAFULT_CHAIN, mumbai, sepolia };
+export { CONFIGURED_CHAINS, DEAFULT_CHAIN, sepolia, arbitrumSepolia };

@@ -1,7 +1,7 @@
-import { mumbai } from './chains';
+import { sepolia } from './chains';
 
 const CONFIGURED_GAS_LIMIT_MULTIPLIERS = {
-  [mumbai.id]: 10,
+  [sepolia.id]: 5,
 };
 
 const DEFAULT_GAS_LIMIT_MULTIPLIER = 1;
