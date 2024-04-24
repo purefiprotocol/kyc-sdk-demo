@@ -3,6 +3,7 @@ export {
   DEAFULT_CHAIN,
   sepolia,
   arbitrumSepolia,
+  bscTestnet,
 } from './chains';
 export { SIGN_TYPE_OPTIONS, DEFAULT_SIGN_TYPE } from './signType';
 export {

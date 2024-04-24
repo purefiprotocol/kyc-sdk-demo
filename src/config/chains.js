@@ -1,4 +1,4 @@
-import { sepolia } from 'wagmi/chains';
+import { sepolia, bscTestnet } from 'wagmi/chains';
 
 const arbitrumSepolia = {
   id: 421614,
@@ -25,7 +25,15 @@ const arbitrumSepolia = {
   },
 };
 
-const CONFIGURED_CHAINS = [sepolia, arbitrumSepolia];
+bscTestnet.name = 'BSC Testnet';
+
+const CONFIGURED_CHAINS = [sepolia, arbitrumSepolia, bscTestnet];
 const DEAFULT_CHAIN = sepolia;
 
-export { CONFIGURED_CHAINS, DEAFULT_CHAIN, sepolia, arbitrumSepolia };
+export {
+  CONFIGURED_CHAINS,
+  DEAFULT_CHAIN,
+  sepolia,
+  arbitrumSepolia,
+  bscTestnet,
+};

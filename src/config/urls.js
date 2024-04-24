@@ -1,4 +1,4 @@
-import { sepolia, arbitrumSepolia } from './chains';
+import { sepolia, arbitrumSepolia, bscTestnet } from './chains';
 
 const DASHBOARD_URL = import.meta.env.VITE_STAGE_DASHBOARD_URL;
 const ISSUER_URL = import.meta.env.VITE_STAGE_ISSUER_URL;
@@ -9,6 +9,10 @@ const CONFIGURED_URLS = {
     issuer: ISSUER_URL,
   },
   [arbitrumSepolia.id]: {
+    dashboard: DASHBOARD_URL,
+    issuer: ISSUER_URL,
+  },
+  [bscTestnet.id]: {
     dashboard: DASHBOARD_URL,
     issuer: ISSUER_URL,
   },

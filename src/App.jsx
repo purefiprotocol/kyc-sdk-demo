@@ -14,11 +14,13 @@ import {
   CONFIGURED_CHAINS,
   sepolia,
   arbitrumSepolia,
+  bscTestnet,
 } from './config';
 import { Layout } from './components';
 import { Swap, Kyc, NotFound } from './pages';
 import sepoliaLogo from './assets/icons/sepolia.png';
 import arbitrumSepoliaLogo from './assets/icons/arbitrum-sepolia.svg';
+import bscTestnetLogo from './assets/icons/bsc.svg';
 
 const wcProjectId = import.meta.env.VITE_WALLECT_CONNECT_PROJECT_ID;
 
@@ -60,6 +62,7 @@ const App = () => {
         chainImages={{
           [sepolia.id]: sepoliaLogo,
           [arbitrumSepolia.id]: arbitrumSepoliaLogo,
+          [bscTestnet.id]: bscTestnetLogo,
         }}
         enableNetworkView
       />
