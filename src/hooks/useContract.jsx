@@ -49,6 +49,10 @@ const useContract = (contractData, functionName) => {
         closeButton: true,
       });
     } else {
+      await new Promise((resolve) => {
+        setTimeout(resolve, 500);
+      });
+
       try {
         const theOverrides = overrides || {};
 
