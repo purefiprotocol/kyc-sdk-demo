@@ -3,7 +3,9 @@ export {
   DEAFULT_CHAIN,
   sepolia,
   arbitrumSepolia,
+  optimismSepolia,
   bscTestnet,
+  polygonAmoy,
 } from './chains';
 export { SIGN_TYPE_OPTIONS, DEFAULT_SIGN_TYPE } from './signType';
 export {

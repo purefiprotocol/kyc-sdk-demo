@@ -1,8 +1,21 @@
-import { sepolia, arbitrumSepolia, bscTestnet } from 'viem/chains';
+import {
+  sepolia,
+  arbitrumSepolia,
+  optimismSepolia,
+  bscTestnet,
+  polygonAmoy,
+} from 'viem/chains';
 
 bscTestnet.name = 'BSC Testnet';
 
-const CONFIGURED_CHAINS = [sepolia, arbitrumSepolia, bscTestnet];
+const CONFIGURED_CHAINS = [
+  sepolia,
+  arbitrumSepolia,
+  optimismSepolia,
+  bscTestnet,
+  polygonAmoy,
+];
+
 const DEAFULT_CHAIN = sepolia;
 
 export {
@@ -10,5 +23,7 @@ export {
   DEAFULT_CHAIN,
   sepolia,
   arbitrumSepolia,
+  optimismSepolia,
   bscTestnet,
+  polygonAmoy,
 };
