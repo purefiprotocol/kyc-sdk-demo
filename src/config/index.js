@@ -22,8 +22,4 @@ export {
   LVL2_CONTRACTS_DICTIONARY,
 } from './contracts';
 export { ZERO_ADDRESS } from './zeroAddress';
-export {
-  CONFIGURED_GAS_LIMIT_MULTIPLIERS,
-  DEFAULT_GAS_LIMIT_MULTIPLIER,
-} from './gasLimitMultiplier';
 export { CONFIGURED_URLS, DEFAULT_URLS } from './urls';

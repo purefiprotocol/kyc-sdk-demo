@@ -2,26 +2,18 @@ import { ethers } from 'ethers';
 import { errorCodes, serializeError } from 'eth-rpc-errors';
 import { toast } from 'react-toastify';
 import useWallet from './useWallet.js';
-import {
-  CONFIGURED_GAS_LIMIT_MULTIPLIERS,
-  DEFAULT_GAS_LIMIT_MULTIPLIER,
-  ZERO_ADDRESS,
-  arbitrumSepolia,
-} from '../config';
+import { ZERO_ADDRESS } from '../config';
 import { capitalizeFirstLetter } from '../utils';
 import { LinkToast } from '../components';
 
 const useContract = (contractData, functionName) => {
-  const { provider, signer, chain } = useWallet();
+  const { signer, chain } = useWallet();
 
   const contract = new ethers.Contract(
     contractData?.contractAddress || ZERO_ADDRESS,
     contractData?.abi || [],
     signer
   );
-
-  const gasLimitMultiplier =
-    CONFIGURED_GAS_LIMIT_MULTIPLIERS[chain.id] || DEFAULT_GAS_LIMIT_MULTIPLIER;
 
   const write = async (args, overrides, toastId) => {
     if (contract.address === ZERO_ADDRESS) {
@@ -55,22 +47,6 @@ const useContract = (contractData, functionName) => {
 
       try {
         const theOverrides = overrides || {};
-
-        if (chain.id !== arbitrumSepolia.id) {
-          const estimatedGasLimit = await contract.estimateGas[functionName](
-            ...args,
-            theOverrides
-          );
-
-          const increasedGasLimit = estimatedGasLimit
-            .mul(gasLimitMultiplier * 100)
-            .div(100);
-
-          const gasPrice = await provider.getGasPrice();
-
-          theOverrides.gasLimit = increasedGasLimit;
-          theOverrides.gasPrice = gasPrice;
-        }
 
         const txn = await contract[functionName](...args, theOverrides);
         const response = await txn.wait();
