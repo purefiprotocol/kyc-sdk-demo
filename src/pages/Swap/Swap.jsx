@@ -4,10 +4,8 @@ import { SwapCard } from '../../components';
 import { useWallet, useContract, useVerifier } from '../../hooks';
 import {
   FREE_CONTRACTS_DICTIONARY,
-  LVL2_CONTRACTS_DICTIONARY,
-  LVL2_RULE_VALUE,
-  // LVL1_CONTRACTS_DICTIONARY,
-  // LVL1_RULE_VALUE,
+  LVL1_CONTRACTS_DICTIONARY,
+  LVL1_RULE_VALUE,
 } from '../../config';
 
 import './Swap.css';
@@ -20,18 +18,15 @@ function Swap() {
   const { account, signer, chain } = useWallet();
 
   const freeContractData = FREE_CONTRACTS_DICTIONARY[chain.id];
-  const featuredContractData = LVL2_CONTRACTS_DICTIONARY[chain.id];
-  // const featuredContractData = LVL1_CONTRACTS_DICTIONARY[chain.id];
+  const featuredContractData = LVL1_CONTRACTS_DICTIONARY[chain.id];
 
   const { write: freeSwap } = useContract(freeContractData, 'buyForWithoutKYC');
 
   const { write: featuredSwap } = useContract(
     featuredContractData,
-    'buyForWithKYCPurefi2'
-    // 'buyForWithKYCPurefi1'
+    'buyForWithKYCPurefi1'
   );
-  const { verify } = useVerifier(featuredContractData, LVL2_RULE_VALUE);
-  // const { verify } = useVerifier(featuredContractData, LVL1_RULE_VALUE);
+  const { verify } = useVerifier(featuredContractData, LVL1_RULE_VALUE);
 
   const handleFreeSwap = useCallback(
     async (value) => {

@@ -168,7 +168,7 @@ const SwapCard = (props) => {
                 className="card-header_tooltip"
                 placement="top"
                 trigger={['hover', 'click']}
-                overlay={<span>KYC Level 2 required</span>}
+                overlay={<span>KYC Level 1 required</span>}
               >
                 <span className="card-header_powered">
                   Powered by
